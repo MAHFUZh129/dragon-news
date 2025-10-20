@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaBookmark, FaShareAlt, FaEye, FaStar } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 // Helper function to format the date (e.g., "2022-08-21" -> "August 21, 2022")
 const formatDate = (isoString) => {
@@ -10,6 +11,7 @@ const formatDate = (isoString) => {
 
 const NewsCard = ({ newsItem }) => {
     const { 
+        id,
         title, 
         author, 
         image_url, 
@@ -72,9 +74,9 @@ const NewsCard = ({ newsItem }) => {
                 <p className="mb-3 leading-relaxed">
                     {snippet}
                 </p>
-                <button className="text-orange-500 font-semibold mb-4 hover:text-orange-600">
+                <Link to={`/news-details/${id}`} className="text-orange-500 font-semibold mb-4 hover:text-orange-600">
                     Read More
-                </button>
+                </Link>
             </div>
             
             {/* Footer: Rating and Views */}
